@@ -23,3 +23,34 @@ pop<-read_csv("./data/pop_demo.csv") %>%
          FY = year)
 ```
 
+Let's explore the AgeAtStart measure
+
+```{r}
+table(dat$AgeAtStart)
+
+### explicitly recode missings
+dat<-dat %>% 
+  mutate(AgeAtStart = 
+           case_when(
+             AgeAtStart >= 99 ~ NA,
+             T ~ AgeAtStart
+           ))
+```
+
+PIVOTING TO THE MICE DEMO WITH BUILT IN DATA
+
+```{r}
+head(nhanes)
+
+summary(nhanes)
+
+imps<-mice(nhanes)
+
+
+```
+
+```{r}
+m0<-lm(chl ~ age, data = nhanes)
+m1<-lm(chl ~ age + bmi + hyp, data = nhanes)
+```
+
