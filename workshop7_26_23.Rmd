@@ -1,0 +1,9 @@
+---
+title: "Handling missing data in AFCARS"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+
+
