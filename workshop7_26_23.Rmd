@@ -5,5 +5,21 @@ editor_options:
   chunk_output_type: inline
 ---
 
+Load in the needed packages
 
+```{r}
+library(tidyverse)
+library(mice)
+```
+
+First let's load in the de-identified AFCARS data and state population data
+
+```{r}
+dat<-read_csv("./data/afcars_demo.csv")
+
+### read pop data and harmonize variable names to afcars names
+pop<-read_csv("./data/pop_demo.csv") %>% 
+  rename(St = state, 
+         FY = year)
+```
 
